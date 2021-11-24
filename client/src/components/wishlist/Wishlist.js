@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 
-// This is the wishlist component
+// This is the wishlist component updated
 export default function WishList({ wishes, toggleWish, deleteWish, editWish }) {
   return (
     <Paper>
