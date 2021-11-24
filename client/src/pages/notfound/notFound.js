@@ -1,7 +1,6 @@
 import React from 'react';
-import './home.css';
 
-const Home = () => {
+const NotFound = () => {
   return (
     <div
       style={{
@@ -11,9 +10,9 @@ const Home = () => {
         height: '90vh'
       }}
     >
-      <h1>Home</h1>
+      <h1>Page Not Found</h1>
     </div>
   );
 };
 
-export default Home;
+export default NotFound;

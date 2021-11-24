@@ -1,15 +1,21 @@
-import Navbar from '.../components/navbar/Navbar.js';
-import Footer from '.../components/footer/Footer.js';
-import Wishform from '.../components/footer/Wishform.js';
+import React from 'react';
+import Wishlist from '../../components/wishlist/Wishlist.js';
 import './profile.css';
 
 const Profile = () => {
     return (
-        <>
-            <Navbar />
-            <Wishform />
-            <Footer />   
-        </>
+        <div
+            style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
+            height: '90vh'
+        }}
+    >
+      <h1>Profile</h1>
+      <Wishlist />
+    </div>
     );
 };
 

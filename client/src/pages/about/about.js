@@ -1,7 +1,6 @@
 import React from 'react';
-import './home.css';
 
-const Home = () => {
+const About = () => {
   return (
     <div
       style={{
@@ -11,9 +10,9 @@ const Home = () => {
         height: '90vh'
       }}
     >
-      <h1>Home</h1>
+      <h1>About</h1>
     </div>
   );
 };
 
-export default Home;
+export default About;
