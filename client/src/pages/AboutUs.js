@@ -13,7 +13,7 @@ import Auth from "../utils/auth";
 const AboutUs = () => {
   return (
     <>
-      <Jumbotron> </Jumbotron>
+      <Jumbotron> Our Story </Jumbotron>
 
       <div>
         <div className="row flex-container mt-3 ml-3">
@@ -30,22 +30,7 @@ const AboutUs = () => {
                   <p></p>
                   <p className="text-center">Who we are and what we do</p>
                   <p className="blog-text">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Assumenda autem consequuntur possimus dolorem voluptates
-                    corporis, quia odio magnam iusto qui! Doloribus laudantium
-                    laboriosam ducimus labore sapiente magnam aut molestias
-                    sequi. Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Minima asperiores nisi a magnam! Dolore reprehenderit
-                    repellat magnam exercitationem eveniet temporibus nam
-                    doloremque ducimus molestiae iusto aliquam recusandae velit,
-                    atque totam. Lorem, ipsum dolor sit amet consectetur
-                    adipisicing elit. Hic neque ea consequuntur necessitatibus
-                    mollitia temporibus earum illum id, eveniet, commodi autem
-                    rem possimus numquam officia blanditiis excepturi itaque
-                    molestiae. Amet. Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Non at maxime, tempora animi, esse
-                    similique consequuntur voluptate veritatis enim facilis
-                    accusamus ab.
+                    Thank you for showing interest in our website. Here a
                   </p>
                   <p className="blog-text">
                     Nemo, vero excepturi rerum iure iste aut praesentium? Lorem
