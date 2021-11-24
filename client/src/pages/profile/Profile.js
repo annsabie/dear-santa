@@ -2,7 +2,7 @@ import React from 'react';
 import Wishlist from '../../components/wishlist/WishListApp.js';
 import './profile.css';
 
-// This is the profile page
+// This is the profile page updated
 const Profile = () => {
     return (
         <div>
