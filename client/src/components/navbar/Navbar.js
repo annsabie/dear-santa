@@ -23,12 +23,15 @@ const Navbar = () => {
           <NavLink to="/about">
             About
           </NavLink>
-          <NavLink to="/signup">
+          {/* <NavLink to="/signup">
             Sign Up
-          </NavLink>
+          </NavLink> */}
         </NavMenu>
         <NavBtn>
           <NavBtnLink to="/login">Log In</NavBtnLink>
+        </NavBtn>
+        <NavBtn>
+          <NavBtnLink to="/signup">Sign Up</NavBtnLink>
         </NavBtn>
       </Nav>
     </>
