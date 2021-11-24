@@ -1,10 +1,6 @@
-// create footer with external pages
-
-// import react
-import React from "react";
 // import fontaswesome icons
 import { FaGithub, FaInfo } from "react-icons/fa";
-import '../footer/index.css'
+import './footer.css'
 
 // footer function
 function Footer() {
@@ -18,9 +14,9 @@ function Footer() {
 
   // return code with jsx
   return (
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12">
           <footer className="footer">
             <div className="container text-center justify-content-center">
               {/* a link to about us*/}
@@ -45,7 +41,7 @@ function Footer() {
               </a>
             </div>
           </footer>
-          <div class="footer-bottom">Copyright © 2021, All Rights Reserved</div>
+          <div className="footer-bottom">Copyright © 2021, All Rights Reserved</div>
         </div>
       </div>
     </div>
