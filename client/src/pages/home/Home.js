@@ -1,7 +1,7 @@
 import React from 'react';
 import './home.css';
 
-// This is the home page
+// This is the home page updated
 const Home = () => {
   return (
     <div
