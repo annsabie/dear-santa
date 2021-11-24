@@ -80,7 +80,7 @@ export default function WishListApp() {
           <Typography color='inherit'>Wishes</Typography>
         </Toolbar>
       </AppBar>
-      <Grid container justify='center' style={{ marginTop: '1rem' }}>
+      <Grid container justifyContent='center' style={{ marginTop: '1rem' }}>
         <Grid item xs={11} md={9} lg={5}>
           <WishesProvider>
             <WishForm addWish={addWish} />
