@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import WishForm from './WishForm';
-import WishList from './WishList';
+import WishList from './Wishlist';
 import useWishesState from '../../hooks/useWishesState';
 import { WishesProvider } from '../../context/wishes.context';
 import AppBar from '@material-ui/core/AppBar';
