@@ -1,6 +1,7 @@
 import React from 'react';
 import './home.css';
 
+// This is the home page
 const Home = () => {
   return (
     <div
