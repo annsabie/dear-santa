@@ -1,37 +1,47 @@
-const mongoose = require('mongoose');
+const bcrypt = require('bcrypt')
+const { Schema, model } = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: true
+const UserSchema = new Schema({
+  username: {
+     type: String,
+     required: true,
+     min: 4,
+     max: 20,
+     trim: true,
+     unique: false,
   },
   email: {
     type: String,
     required: true,
+    trim: true,
     unique: true,
     match: [/.+@.+\..+/, 'Must use a valid email address'],
+    max: 30,
   },
   password: {
     type: String,
-    required: true
-  }
+    required: true,
+    min: 6,
+  },
+  profilePicture: {
+    type: String,
+    default: "",
+  },
 });
 
 // hash user password
-// userSchema.pre('save', async function (next) {
-//     if (this.isNew || this.isModified('password')) {
-//       const saltRounds = 10;
-//       this.password = await bcrypt.hash(this.password, saltRounds);
-//     }
+ UserSchema.pre('save', async function (next) {
+     if (this.isNew || this.isModified('password')) {
+       const saltRounds = 10;
+       this.password = await bcrypt.hash(this.password, saltRounds);
+     }
   
-//     next();
-//   });
+     next();
+   });
   
   // custom method to compare and validate password for logging in
-//   userSchema.methods.isCorrectPassword = async function (password) {
-//     return bcrypt.compare(password, this.password);
-//   };
+   UserSchema.methods.isCorrectPassword = async function (password) {
+     return bcrypt.compareSync(password, this.password);
+   };
 
-const User = mongoose.model('User', UserSchema);
-
-module.exports = User;
+module.exports = model('User', UserSchema);
