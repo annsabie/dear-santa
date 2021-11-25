@@ -1,17 +1,24 @@
 /* footer styling and positioning */
 .footer {
     position: fixed;
-    background-color: red;
+    background-color: black;
     width: 100%;
     padding: 10px;
     bottom: 0;
+    text-align: center;
+    color: white;
   }
 
 /* FontAwesome #footer-icon */
 #footer-icons {
     text-align: center !important;
-    color: green;
-    font-size: 4em;
+    color: white;
+    font-size: 3em;
     padding: 10px;
+}
+
+#footer-text {
+  color: white !important;
+  font-size: 1.5em !important;
 }
 

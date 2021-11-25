@@ -8,7 +8,17 @@ import {
   Card,
   CardColumns,
 } from "react-bootstrap";
-import Auth from "../utils/auth";
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+// import Auth from "../utils/auth";
+
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 const AboutUs = () => {
   return (
@@ -16,50 +26,47 @@ const AboutUs = () => {
       <Jumbotron> Our Story </Jumbotron>
 
       <div>
-        <div className="row flex-container mt-3 ml-3">
+      <div className="row flex-container mt-3 ml-3">
           <div className="col-sm-12 col-lg-5 shadow-lg rounded">
             <div className="card m-1">
               <div className="card-body justify-content-end">
-                <h2 className="text-center">
-                  {" "}
-                  Dear Santa! {" "}
-                </h2>
+                <h2 className="text-center"> Dear Santa! </h2>
                 <div className="welcome-text">
                   <p></p>
                   <p></p>
                   <p></p>
                   <p className="text-center">Who we are and what we do</p>
                   <p className="blog-text">
-                    Thank you for showing interest in our website. Here a
+                    We can agree there is so much time and money spent during
+                    holiday season just trying to figure out which gift to buy,
+                    or if someone had already bought the gift that you are still
+                    waiting in line for.
                   </p>
                   <p className="blog-text">
-                    Nemo, vero excepturi rerum iure iste aut praesentium? Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Omnis,
-                    consequatur quos. Non tenetur excepturi mollitia aliquid id
-                    autem nulla impedit libero magnam eligendi! Possimus
-                    corporis atque praesentium amet officia hic? Lorem, ipsum
-                    dolor sit amet consectetur adipisicing elit. Suscipit
-                    aperiam, inventore sint doloribus ducimus quidem amet ipsum.
-                    Illum distinctio consequatur odit. Corrupti consequatur a
-                    ullam repudiandae reprehenderit adipisci modi autem? Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Quasi
-                    voluptatem, ad maxime eaque, ratione ipsum eum at quo et
-                    deserunt quod non rerum sed. Ea vitae minima autem deleniti
-                    corporis? Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit.
+                    Imagine waking up for Christmas knowing you will not receive
+                    the same gift from your favorite aunties or going gift
+                    shopping, knowing exactly what to add to your shopping cart.
                   </p>
                   <p className="blog-text">
-                    Asperiores voluptatibus nulla quisquam nesciunt ut dolor
-                    explicabo esse earum, quos minus adipisci modi, doloremque
-                    quasi eius, eveniet corrupti ab ipsa impedit. Lorem ipsum
-                    dolor sit amet consectetur adipisicing elit. Minima nobis
-                    possimus, tempore reprehenderit explicabo totam est
-                    molestias incidunt soluta in ea, nam magnam enim sint. Quod
-                    maiores dignissimos natus sequi. Lorem ipsum dolor sit, amet
-                    consectetur adipisicing elit. Voluptatem sequi nam nisi
-                    adipisci architecto eos eum quaerat. Ipsum temporibus,
-                    libero doloribus maiores quos aliquid eos officia debitis
-                    dolorem labore optio!
+                    Here at Dear Santa, we have made it our priority to equip
+                    you with tool to be able to navigate your holiday season
+                    shopping adventures.
+                  </p>
+                  <p className="blog-text">Why choose us?</p>
+                  <p className="blog-text">
+                    Dear Santa allows you to create a wish list that can be
+                    posted publicly or privately amongst family and friends.
+                    
+                    <div>
+                      <Stack direction="row" spacing={2}>
+                        <Item>You can see what items have been purchased and what is
+                    still available to be changed.</Item>
+                        <Item>Effortless organization of
+                    your gifts.</Item>
+                        <Item>All you need is a link to your item to add it to
+                    your wish list and have an ability to rank your items.</Item>
+                      </Stack>
+                  </div>
                   </p>
                 </div>
               </div>
