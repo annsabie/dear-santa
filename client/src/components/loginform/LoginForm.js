@@ -96,7 +96,8 @@ const LoginForm = () => {
         <Button
           disabled={!(userFormData.email && userFormData.password)}
           type='submit'
-          variant='success'>
+          variant='success'
+          href="/profile">
           Submit
         </Button>
       </Grid>
