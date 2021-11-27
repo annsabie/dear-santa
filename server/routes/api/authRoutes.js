@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
-const { authUser, loginUser } = require('../../controllers/AuthController');
+const { newUser, loginUser } = require('../../controllers/AuthController');
 
-router.route('/profile').post(authUser);
+router.route('/signup').post(newUser);
 router.route('/login').post(loginUser);
 // router.route('/:id').get(getProduct);
 // router.route('/:id').put(updateProduct);
