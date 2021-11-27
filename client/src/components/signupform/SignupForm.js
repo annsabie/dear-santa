@@ -1,167 +1,135 @@
-// import Auth from '../../utils/auth';
-
-// const SignupForm = () => {
-//   // set initial form state
-//   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
-  
-//   // set ADD_USER mutation - do we need data?
-//   const [addUser, { error, data }] = useMutation(ADD_USER);
-
-//   // set state for form validation
-//   const [validated] = useState(false);
-  
-//   // set state for alert
-//   const [showAlert, setShowAlert] = useState(false);
-
-//   // update state based on form input changes
-//   const handleInputChange = (event) => {
-//     const { name, value } = event.target;
-//     setUserFormData({ ...userFormData, [name]: value });
-//   };
-
-//   // submit form
-//   const handleFormSubmit = async (event) => {
-//     event.preventDefault();
-
-//     // check if form has everything (as per react-bootstrap docs)
-//     const form = event.currentTarget;
-//     if (form.checkValidity() === false) {
-//       event.preventDefault();
-//       event.stopPropagation();
-//     }
-
-//     try {
-//       const { data } = await addUser({
-//         variables: {...userFormData }
-//       });
-//         // using the token created log the user in
-//       Auth.login(data.addUser.token);
-//     } catch (err) {
-//       console.error(err);
-//       setShowAlert(true);
-//     }
-
-//     setUserFormData({
-//       username: '',
-//       email: '',
-//       password: '',
-//     });
-//   };
-
-//   return (
-//     <>
-//       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-//         <label>
-//           First Name: 
-//           <input type="text" name="firstname" />
-//         </label>
-//         <label>
-//           Last Name: 
-//           <input type="text" name="lastname" />
-//         </label>
-//         <label>
-//           Email Address: 
-//           <input type="text" name="email" />
-//         </label>
-//         <label>
-//           Password: 
-//           <input type="text" name="password" />
-//         </label>
-//         <input type="submit" value="Submit" />
-//       </Form>
-//     </>
-//   );
-// };
-
-// export default SignupForm;
-
+// import { InputLabel } from '@material-ui/core';
 import React, { useState } from 'react';
 // import { Form, Button, Alert } from 'react-bootstrap';
+import './signup.css'
 
-// import Auth from '../utils/auth';
+import Button from "@material-ui/core/Button";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Input from "@material-ui/core/Input";
+import Grid from "@material-ui/core/Grid";
 
-export default function SignupForm() {
-  const [userFormData, setUserFormData] = useState({
-    firstName: '',
-    email: '', 
-    password: '' 
- });
+import { createUser } from '../../utils/api';
+import Auth from '../../utils/auth';
 
-  const defaultSignUpFormValues = { firstName:"", email:"", password:""}
+const SignupForm = () => {
+  // set initial form state
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  // set state for form validation
+  const [validated] = useState(false);
+  // set state for alert
+  const [showAlert, setShowAlert] = useState(false);
 
-  const [formData, setFormData] = useState(defaultSignUpFormValues);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  // update state based on form input changes
-  handleInputChange = (e) => {
-    const { name, value } = e.target;
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-  // submit form
-  handleFormSubmit = (e) => {
-    e.preventDefault();
+  /* When a new user is created, the server will send back a token 
+  for that user, as well as the user's data. The Auth.login() method 
+  will then save that token to localStorage. */
 
-    if(!formData.username) {
-      setErrorMessage('Username is invalid');
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
 
-      return;
+    // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
     }
 
-    if(!checkPassword(formData.password)) {
-      setErrorMessage('Password is invalid')
-    }
-    return;
-    // this.setState({
-    //   [e.target.id]: e.target.value
-    // })
-  } 
+    try {
+      const response = await createUser(userFormData);
 
-return (
-  <div className="container">
-    <form onSubmit={this.handleFormSubmit} className="white">
-        <h5 className="grey-text text-darken-3">Sign Up</h5>
-        <div className="input-field">
-            <label htmlFor="firstName">First Name</label>
-            <input 
-              type="text" 
-              id="firstName" 
-              onChange={this.handleInputChange}
-            />
-        </div>
-        <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input 
-              type="email" 
-              id="email" 
-              onChange={this.handleInputChange}
-              required
-            />
-        </div>
-        <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input 
-              type="password" 
-              id="password" 
-              onChange={this.handleInputChange}
-              required
-            />
-        </div>
-        <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">SignUp</button>
-            {/* <div className="red-text center">
-                {authError ? <p>{authError}</p> : null}
-            </div> */}
-        </div>
-        <h7 className="grey-text text-darken-3">* If you already have an account with us, please <a href="/signin">Login</a></h7>
-    </form>
-    {errorMessage && (
-        <div>
-          <p style={errorStyle} className="error-text">{errorMessage}</p>
-        </div>
-      )}
-  </div>
-)
-}
+      if (!response.ok) {
+        throw new Error('something went wrong!');
+      }
+
+      const { token, user } = await response.json();
+      Auth.login(token);
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
+    }
+
+    setUserFormData({
+      username: '',
+      email: '',
+      password: '',
+    });
+  };
+
+  return (
+    <>
+    <Grid className="signupContainer" container spacing={0} justifyContent="center" direction="row">
+      <Grid item className="signupForm">
+
+    {/* TODO: Validation functionality in Material UI format */}
+      <Grid container direction="column" justifyContent="center" spacing={2} noValidate validated={validated} onSubmit={handleFormSubmit}>
+      {/* <Form noValidate validated={validated} onSubmit={handleFormSubmit}> */}
+
+      {/* TODO: show alert if server response is bad in Material UI */}
+        {/* show alert if server response is bad */}
+        {/* <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+          Something went wrong with your signup!
+        </Alert> */}
+
+    <h1>Signup!</h1>
+        <br />
+        <FormControl>
+          <InputLabel htmlFor='username'>Username</InputLabel>
+          <Input
+            type='text'
+            placeholder='Your username'
+            name='username'
+            onChange={handleInputChange}
+            value={userFormData.username}
+            required
+          />
+          {/* TODO: Alert feedback in Material UI format */}
+          {/* <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback> */}
+        </FormControl>
+        <br />
+        <FormControl>
+          <InputLabel htmlFor='email'>Email</InputLabel>
+          <Input
+            type='email'
+            placeholder='Your email address'
+            name='email'
+            onChange={handleInputChange}
+            value={userFormData.email}
+            required
+          />
+          {/* TODO: Alert feedback in Material UI format */}
+          {/* <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback> */}
+        </FormControl>
+        <br />
+        <FormControl>
+          <InputLabel htmlFor='password'>Password</InputLabel>
+          <Input
+            type='password'
+            placeholder='Your password'
+            name='password'
+            onChange={handleInputChange}
+            value={userFormData.password}
+            required
+          />
+          {/* TODO: Alert feedback in Material UI format */}
+          {/* <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback> */}
+        </FormControl>
+        <br />
+        <Button
+          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          type='submit'
+          variant='success'>
+          Submit
+        </Button>
+        </Grid>
+      </Grid>
+      </Grid>
+    </>
+  );
+};
 
 export default SignupForm;
