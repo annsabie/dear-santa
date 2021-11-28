@@ -3,13 +3,13 @@ const { User } = require("../models");
 module.exports = {
   async share(req, res) {
     try {
-      const filter = { key: req.body.key };
+      const filter = { key: req.params.key };
       const user = await User.findOne(filter);
       const shares = user.shares;
-      const i = shares.indexOf(req.body.giver);
+      const i = shares.indexOf(req.body.email);
 
       if (i === -1) {
-        shares.push(req.body.giver);
+        shares.push(req.body.email);
         user.update({ shares: shares }).exec();
       }
 
@@ -38,7 +38,7 @@ module.exports = {
   async createWish(req, res) {
     // save a wish for current user
     try {
-      const filter = { key: req.body.key };
+      const filter = { key: req.params.key };
       const user = await User.findOne(filter);
       const wishes = user.wishes;
       const i = wishes.indexOf(req.body.description);
@@ -64,7 +64,7 @@ module.exports = {
   async updateWish(req, res) {
     // replace a wish for current user
     try {
-      const filter = { key: req.body.key };
+      const filter = { key: req.params.key };
       const user = await User.findOne(filter);
       const wishes = user.wishes;
       const i = wishes.indexOf(req.body.before);
@@ -85,7 +85,7 @@ module.exports = {
   async deleteWish(req, res) {
     // remove a wish for current user
     try {
-      const filter = { key: req.body.key };
+      const filter = { key: req.params.key };
       const user = await User.findOne(filter);
       const wishes = user.wishes;
       const i = wishes.indexOf(req.body.description);

@@ -4,7 +4,7 @@ const {
     updateGranted,
 } = require("../../controllers/list-controller");
 
-router.route("/").get(readWishes);
-router.route("/").put(updateGranted);
+router.route("/:key").get(readWishes);
+router.route("/:key").put(updateGranted);
 
 module.exports = router;
