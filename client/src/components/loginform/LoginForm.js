@@ -100,6 +100,7 @@ const LoginForm = () => {
                   value={userFormData.email}
                   required
                 />
+                <br />
                 {/* TODO: Alert feedback in Material UI format */}
                 {/* <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback> */}
                 <TextField
