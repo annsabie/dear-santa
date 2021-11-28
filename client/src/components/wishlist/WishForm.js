@@ -7,7 +7,7 @@ export default function WishForm({ addWish }) {
   const [value, handleChange, reset] = useInputState("");
 
   return (
-    <Paper style={{ margin: "1rem 0", padding: "0 1rem" }}>
+    <Paper style={{ margin: "1rem 0", padding: "0 1rem" }}> 
       <form
         onSubmit={event => {
           // prevent the default request to refresh the page

@@ -21,7 +21,7 @@ const Navbar = () => {
             </NavLink>
             <Bars />
             <NavMenu>
-              <NavLink to="/profile">Profile</NavLink>
+              <NavLink to="/wishlistpage">My List</NavLink>
               <NavLink to="/about">About</NavLink>
             </NavMenu>
             {value.loginState.email ? (

@@ -3,8 +3,6 @@ import WishForm from './WishForm';
 import WishList from './Wishlist';
 import useWishesState from '../../hooks/useWishesState';
 import { WishesProvider } from '../../context/wishes.context';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function WishListApp() {
@@ -61,23 +59,9 @@ export default function WishListApp() {
   );
 
   return (
-    //<Paper
-      //style={{
-        //height: '100vh',
-        //backgroundImage: 'linear-gradient(to right top, #d1bebc, #d2c0c1, #c5b0ba, #b2a3b6, #9798b2, #768faa)',
-        //padding: 0,
-        //margin: 0
-     // }}
-     // elevation={0}
-  // >
-      <Grid container justifyContent='center' style={{ marginTop: '1rem' }}>
-        <Grid item xs={11} md={9} lg={5}>
           <WishesProvider>
             <WishForm addWish={addWish} />
             <WishList wishes={wishes} toggleWish={toggleWish} deleteWish={deleteWish} editWish={editWish} />
           </WishesProvider>
-        </Grid>
-      </Grid>
-   // </Paper>
   );
 }
