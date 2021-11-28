@@ -24,7 +24,7 @@ function Footer() {
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                href= "#about"
+                href= "/about"
                 target="_blank"
                 rel="noreferrer"
               >

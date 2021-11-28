@@ -11,8 +11,7 @@ import Signup from "./components/signupform/SignupForm";
 import Footer from "./components/footer/Footer.js";
 import NotFound from "./pages/notfound/notFound.js";
 import { LoginProvider } from "./context/login.context";
-import WishListPage from "./pages/wishlistpage/WishListPage";
-import UserProfile from "./pages/profile/userprofile";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   return (
@@ -21,9 +20,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/wishlistpage" element={<WishListPage />} />
           <Route exact path="/about" element={<About />} />
-          <Route exact path="/profile" element={<UserProfile />} />
+          <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route path="*" element={<NotFound />} />

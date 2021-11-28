@@ -11,14 +11,13 @@ import Hat from "../../images/hat.png"
 import TextField from '@material-ui/core/TextField';
 import "./profile.css"
 import { Divider, Typography } from '@material-ui/core';
-import Santa from "../../images/santa.jpg"
-import { LoginContext } from "../../context/login.context";
-import Wishlist from '../../components/wishlist/WishListApp.js';
-import './profile.css';
 import WishList from '../../components/wishlist/WishListApp';
+import { IconButton } from '@material-ui/core';
+import DeleteIcon from "@material-ui/icons/Delete"
+import SaveIcon from "@material-ui/icons/Save"
 
 
-export default function UserProfile() {
+export default function Profile() {
   return (
     <Paper 
     style={{
@@ -35,17 +34,23 @@ export default function UserProfile() {
         <Grid item justifyContent="center" xs={12} sm={5}>
           <Card id="cardcontents">
           <Avatar padding="10">UN</Avatar>
-          <Typography variant="h5" align="center">Username</Typography>
+          <Typography variant="h4" align="center">Username</Typography>
           
           <Divider />
-          <Typography variant="h4" align="center">Bio</Typography>
+          <Typography variant="h5" align="center">Bio</Typography>
           <TextField
           id="outlined-multiline-static"
-          label="Multiline"
+          label=""
           multiline
           rows={8}
           defaultValue="Default Value"
         />
+        <IconButton aria-label="delete">
+  <DeleteIcon />
+</IconButton>
+<IconButton aria-label="save">
+  <SaveIcon />
+</IconButton>
             
           </Card>
         </Grid>
