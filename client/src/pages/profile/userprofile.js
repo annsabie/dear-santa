@@ -1,14 +1,18 @@
 import * as React from 'react';
-//import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+//import CardContent from '@material-ui/core/CardContent';
+//import Typography from '@material-ui/core/Typography';
 import Avatar from "@material-ui/core/Avatar";
-import { green } from "@material-ui/core/colors";
+import Card from "@material-ui/core/Card";
 import UploadButton from './imageUpload';
 import Paper from "@material-ui/core/Paper"
 import Grid from "@material-ui/core/Grid"
+//import CardMedia from '@material-ui/core/CardMedia';
+import Hat from "../../images/hat.png"
+import TextField from '@material-ui/core/TextField';
+import "./profile.css"
+import { Divider, Typography } from '@material-ui/core';
+import Santa from "../../images/santa.jpg"
+import { LoginContext } from "../../context/login.context";
 
 export default function UserProfile() {
   return (
@@ -21,21 +25,31 @@ export default function UserProfile() {
     }}
    elevation={0}
 >
-<Grid container justifyContent='center' style={{ marginTop: '0rem' }}>
-        <Grid item xs={11} md={9} lg={5}>
-    <Paper style={{ margin: "1rem 0", padding: "0 1rem" }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Username
-        </Typography>
-        <Avatar sx={{ bgcolor: green[800] }}>OP</Avatar>
-        <UploadButton />
-      </CardContent>
-    </Paper>
-    </Grid>
-    </Grid>
-    </Paper>
-  );
-}
 
+<Grid id="profilecard" container justifyContent='center' style={{ marginTop: '0rem' }}>
+  <Grid item xs={8} md={8} lg={5}>
+          <Card id="cardcontents">
+          <Avatar padding="10">UN</Avatar>
+          <Typography variant="h5" align="center">Username</Typography>
+          <Typography variant="h6" align="center">Email</Typography>
+          <Divider />
+          <img id= "santa" src={Santa} />
+          <Typography variant="h4" align="center">Share your list!</Typography>
+          <TextField 
+          id="standard-read-only-input"
+          label="Copy this link"
+          defaultValue="www.dearsanta.com/user"
+          InputProps={{
+            readOnly: true,
+          }}
+          variant="standard"
+          fullWidth
+        />
+            
+          </Card>
+        </Grid>
+  
+</Grid>
 
+</Paper>
+  )}
