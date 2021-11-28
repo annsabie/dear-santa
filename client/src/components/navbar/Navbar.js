@@ -23,6 +23,7 @@ const Navbar = () => {
             <NavMenu>
               <NavLink to="/wishlistpage">My List</NavLink>
               <NavLink to="/about">About</NavLink>
+              <NavLink to="/profile">Profile</NavLink>
             </NavMenu>
             {value.loginState.email ? (
               <span>User logged in: {value.loginState.email}</span>

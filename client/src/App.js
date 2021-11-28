@@ -12,6 +12,7 @@ import Footer from "./components/footer/Footer.js";
 import NotFound from "./pages/notfound/notFound.js";
 import { LoginProvider } from "./context/login.context";
 import WishListPage from "./pages/wishlistpage/WishListPage";
+import UserProfile from "./pages/profile/userprofile";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/wishlistpage" element={<WishListPage />} />
           <Route exact path="/about" element={<About />} />
+          <Route exact path="/profile" element={<UserProfile />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route path="*" element={<NotFound />} />
