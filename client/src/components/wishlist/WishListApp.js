@@ -9,35 +9,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { v4 as uuidv4 } from 'uuid';
+import auth from '../../utils/auth.js';
 
 export default function WishListApp() {
-  const initialWishesArray = [
-    {
-      id: uuidv4(),
-      content: 'Audio-Technica ATH-M50x Headphones',
-      done: false,
-      link: 'https://www.audio-technica.com/cms/headphones/99aff89488ddd6b1/index.html'
-    },
-    {
-      id: uuidv4(),
-      content: 'Celeste Mountain on Steam',
-      done: false,
-      link: 'https://store.steampowered.com/app/504230/Celeste/'
-    },
+  // GET current userKey
+  // Fetch current user wish list
+  console.log("WishListApp:", auth.getProfile());
 
-    {
-      id: uuidv4(),
-      content: 'Dreamland Alaskan Husky Faux Fur Heated Throw',
-      done: false,
-      link: 'http://www.dreamlandworld.com/products/relaxwell-faux-fur-heated-throw/'
-    },
-    {
-      id: uuidv4(),
-      content: 'House of Leaves',
-      done: true,
-      link: 'https://www.barnesandnoble.com/w/house-of-leaves-mark-z-danielewski/1103027816#/'
-    }
-  ];
+  const initialWishesArray = [];
 
   // const wishesLength = JSON.parse(localStorage.getItem('wishes')).length;
   const wishesLength = 0;

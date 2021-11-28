@@ -26,16 +26,8 @@ of passing tokens from client to server. */
 
 const baseUrl = "http://localhost:3001";
 
-export const getMe = () => {
-  return fetch(`${baseUrl}/api/users/me`, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-};
-
 export const createUser = (userData) => {
-  return fetch(`${baseUrl}/api/users`, {
+  return fetch(`${baseUrl}/api/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -45,7 +37,7 @@ export const createUser = (userData) => {
 };
 
 export const loginUser = (userData) => {
-  return fetch(`${baseUrl}/api/users/login`, {
+  return fetch(`${baseUrl}/api/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

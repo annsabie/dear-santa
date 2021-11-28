@@ -43,7 +43,7 @@ module.exports = {
       const user = await User.create(req.body);
 
       if (!user) {
-        return res.status(400).json({ message: "Something is wrong!" });
+        return res.status(400).json({ message: "User-controller: signup: Could not create user" });
       }
       // const token = signToken(user);
       await saveUserLoginSession(req.session, user);

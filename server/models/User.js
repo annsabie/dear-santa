@@ -1,16 +1,12 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const digits = "0123456789abcdefghijklmnopqrstuvwxyz";
-const max = 1679615;
 const min = 46656;
+const range = 1679615 - min;
 const randomKey = function () {
   // min and max values are for 4 digit base 36 numbers
-  let n = Math.random() * (max - min) + min;
-  let k = "";
-  while(n > 0) {
-    k += digits[n%36];
-    n /= 36;
-  }
+  let n = parseInt(Math.random() * range) + min;
+  let k = n.toString(36);
+  console.info("randomKey", n, k);
   return k;
 };
 

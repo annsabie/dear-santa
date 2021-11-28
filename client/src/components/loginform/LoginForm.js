@@ -7,10 +7,10 @@ import TextField from "@material-ui/core/TextField";
 
 import Grid from "@material-ui/core/Grid";
 import { loginUser } from "../../utils/api";
-import Auth from "../../utils/auth";
+/* import Auth from "../../utils/auth"; */
 import { LoginContext } from "../../context/login.context";
 
-const emailRegex = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+const emailRegex = /^([a-z0-9_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/;
 
 const LoginForm = () => {
   const navigate = useNavigate();

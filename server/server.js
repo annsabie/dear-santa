@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const routes = require("./routes");
 const MongoDbStore = require("connect-mongodb-session")(session);
-require("dotenv").config();
+require("dotenv").config({ path: path.resolve(__dirname, './.env') });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -43,6 +43,8 @@ app.get("*", (req, res) => {
 });
 
 app.use(routes);
+
+console.log(process.env.MONGO_URL);
 
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
