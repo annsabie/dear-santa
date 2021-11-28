@@ -21,7 +21,6 @@ const Navbar = () => {
             </NavLink>
             <Bars />
             <NavMenu>
-              <NavLink to="/wishlistpage">My List</NavLink>
               <NavLink to="/about">About</NavLink>
               <NavLink to="/profile">Profile</NavLink>
             </NavMenu>

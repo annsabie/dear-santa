@@ -13,6 +13,10 @@ import "./profile.css"
 import { Divider, Typography } from '@material-ui/core';
 import Santa from "../../images/santa.jpg"
 import { LoginContext } from "../../context/login.context";
+import Wishlist from '../../components/wishlist/WishListApp.js';
+import './profile.css';
+import WishList from '../../components/wishlist/WishListApp';
+
 
 export default function UserProfile() {
   return (
@@ -21,35 +25,33 @@ export default function UserProfile() {
       height: '100vh',
       backgroundImage: 'linear-gradient(to right top, #d1bebc, #d2c0c1, #c5b0ba, #b2a3b6, #9798b2, #768faa)',
       padding: 0,
-      margin: 0
+      margin: 0,
+      marginTop: 0
     }}
    elevation={0}
->
-
-<Grid id="profilecard" container justifyContent='center' style={{ marginTop: '0rem' }}>
-  <Grid item xs={8} md={8} lg={5}>
+   >
+<WishList />
+<Grid container justifyContent="center" spacing={3} style={{ margin: "0px 0px 300px 0px"}}>
+        <Grid item justifyContent="center" xs={12} sm={5}>
           <Card id="cardcontents">
           <Avatar padding="10">UN</Avatar>
           <Typography variant="h5" align="center">Username</Typography>
-          <Typography variant="h6" align="center">Email</Typography>
+          
           <Divider />
-          <img id= "santa" src={Santa} />
-          <Typography variant="h4" align="center">Share your list!</Typography>
-          <TextField 
-          id="standard-read-only-input"
-          label="Copy this link"
-          defaultValue="www.dearsanta.com/user"
-          InputProps={{
-            readOnly: true,
-          }}
-          variant="standard"
-          fullWidth
+          <Typography variant="h4" align="center">Bio</Typography>
+          <TextField
+          id="outlined-multiline-static"
+          label="Multiline"
+          multiline
+          rows={8}
+          defaultValue="Default Value"
         />
             
           </Card>
         </Grid>
   
 </Grid>
+
 
 </Paper>
   )}

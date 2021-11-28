@@ -4,6 +4,7 @@ import WishList from './Wishlist';
 import useWishesState from '../../hooks/useWishesState';
 import { WishesProvider } from '../../context/wishes.context';
 import { v4 as uuidv4 } from 'uuid';
+import Grid from "@material-ui/core/Grid"
 
 export default function WishListApp() {
   const initialWishesArray = [
@@ -59,9 +60,13 @@ export default function WishListApp() {
   );
 
   return (
+    <Grid container justifyContent='center' style={{ marginTop: '1rem' }}>
+    <Grid item xs={11} md={9} lg={5}>
           <WishesProvider>
             <WishForm addWish={addWish} />
             <WishList wishes={wishes} toggleWish={toggleWish} deleteWish={deleteWish} editWish={editWish} />
           </WishesProvider>
+    </Grid>
+    </Grid>
   );
 }
