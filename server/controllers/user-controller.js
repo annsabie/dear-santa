@@ -1,41 +1,3 @@
-// const { User } = require('../models');
-// // const { checkPassword } = require('../utils/helpers');
-// const { signToken } = require('../utils/auth');
-
-// module.exports = {
-//   // create User
-//   async createUser({ body }, res) {
-//     const user = await User.create(body);
-
-//     if (!user) {
-//       return res.status(400).json({message: 'Unable to create user'});
-//     }
-//     res.status(200).json(user);
-//   },
-//   // create message still not sure if we are gonna have chats attached to user or group
-
-//   async userLogin(req, res) {
-//     const userData = await User.findOne({ where: { username: req.body.username} && {password: req.body.password}});
-//     console.log(userData);
-//     if(!userData) {
-//       res.status(400).json({ message: 'Incorrect username or password, please try again' });
-//       return;
-//     }
-
-//     // const validPassword = await checkPassword(req.body.password);
-//     const validPassword = req.body.password === userData.password;
-
-//     if (!validPassword) {
-//         res.status(400).json({ message: 'Incorrect username or password, please try again '});
-//         return;
-//     }
-//     console.log(validPassword);
-//     const token = signToken(userData);
-//     delete userData.password;
-//     res.json( { token, userData } );
-//   }
-// }
-
 // import user model
 const { User } = require("../models");
 
@@ -49,7 +11,7 @@ module.exports = {
   first to match by _id if a value is passed through; otherwise it will try
   to match on username. */
 
-  async getSingleUser({ user = null, params }, res) {
+/*   async getSingleUser({ user = null, params }, res) {
     const foundUser = await User.findOne({
       $or: [
         { _id: user ? user._id : params.id },
@@ -65,18 +27,18 @@ module.exports = {
 
     res.json(foundUser);
   },
-
-  async getUsers(req, res) {
+ */
+ /*  async getUsers(req, res) {
     console.log("finding users");
     const foundUsers = await User.find({});
     console.log(foundUsers);
     res.json(foundUsers);
-  },
+  }, */
 
   /* Here we are creating a new user. When doing so, we also created a signed token to be 
   "attached" to that user. The result is sent back to (in this case) client/src/components/SignUpForm.js */
 
-  async createUser(req, res) {
+  async signup(req, res) {
     try {
       const user = await User.create(req.body);
 
@@ -86,7 +48,7 @@ module.exports = {
       // const token = signToken(user);
       await saveUserLoginSession(req.session, user);
 
-      res.json({ username: user.username, email: user.email });
+      res.json({ key: user.key, username: user.username, email: user.email });
     } catch (e) {
       res.status(500).json({ message: e.message });
     }
@@ -118,7 +80,7 @@ module.exports = {
     await saveUserLoginSession(req.session, user);
 
     res.json({
-      user: { email: user.email, username: user.username },
+      user: { key: user.key, email: user.email, username: user.username },
       message: "You are now logged in!",
     });
   },
