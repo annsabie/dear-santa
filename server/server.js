@@ -44,6 +44,8 @@ app.get("*", (req, res) => {
 
 app.use(routes);
 
+console.log(process.env.MONGO_URL);
+
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useFindAndModify: false,
