@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { api } from '../../utils/api';
+/* import api from '../utils/api'; */
 import { v4 as uuidv4 } from 'uuid';
 
 export default initialWishes => {
@@ -13,22 +13,22 @@ export default initialWishes => {
         granted: false
       };
       
-      handleResponse("create new", api.createWish(wish));        
+/*       handleResponse("create new", api.createWish(wish));   */      
     },
     deleteWish: newWishText => {
       const wish = { description: newWishText };
 
-      handleResponse("delete wish", api.deleteWish(wish));
+/*       handleResponse("delete wish", api.deleteWish(wish)); */
     },
     toggleWish: newWishText => {
       const wish = { granted: newWishText };
 
-      handleResponse("toggle wish", api.updateWish(wish));
+/*       handleResponse("toggle wish", api.updateWish(wish)); */
     },
     editWish: newWishText => {
       const wish = { description: newWishText };
 
-      handleResponse("edit wish", api.updateWish(wish));
+/*       handleResponse("edit wish", api.updateWish(wish)); */
     }
   };
 };
@@ -47,7 +47,7 @@ function handleResponse(action, response) {
       };
   })})
   .then(function(wishes){
-    setWishes(wishes);
+/*     setWishes(wishes); */
   })
   .catch(function(err){
     console.error(`${action} error: ${err.message}`)

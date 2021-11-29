@@ -9,14 +9,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { v4 as uuidv4 } from 'uuid';
-/* import api from '../../utils/api.js'; */
+import { getWishes } from '../../utils/api.js';
 
 export default function WishListApp() {
   // GET current userKey
   // Fetch current user wish list
   const initialWishes = [];
+/*   const [wishList, setWishList] = useState([]); */
 
-  api.getWishes().then(function(response) {
+ /*  api.getWishes().then(function(response) {
     if (!response.ok) { console.error("unable to get wishes:", response.status, response.statusText); return }
     response.json()
   }).then(function(wishes){
@@ -26,22 +27,27 @@ export default function WishListApp() {
         done: wish.granted 
       });
     });
-  });
+  }); */
 
   console.log("WishListApp:", initialWishes);
 
   const { wishes, addWish, deleteWish, toggleWish, editWish } = useWishesState(initialWishes);
 
-  useEffect(
-    () => {
-      // sync wishes to localStorage by saving them under the key of "wishes"
-      // since wishes are objects, and localStorage needs a string,
-      // we need to explicitly convert them into strings, in order to avoid
-      // the JS Engline implicitly calling .toString() on the objects
-      window.localStorage.setItem('wishes', JSON.stringify(wishes));
-    },
-    [ wishes ]
-  );
+  useEffect(() => {
+    const getWishList = async () => {
+      try {
+        const res = await getWishes();
+        if (!res.ok) {
+          throw new Error('No list of wishes');
+        }
+        const wishList = await res.json();
+/*         setWishList(wishList); */
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getWishList();
+  }, [ wishes ] );
 
   return (
     <Paper

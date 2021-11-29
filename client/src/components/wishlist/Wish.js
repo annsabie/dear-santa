@@ -39,7 +39,7 @@ export default function Wish({
                   icon={<FavoriteBorder />}
                   checkedIcon={<Favorite />}
                   checked={done}
-                  onClick={() => toggleWish(id)}
+                  onClick={() => toggleWish(content)}
                 />
               }
             />
@@ -51,7 +51,7 @@ export default function Wish({
             <IconButton aria-label="edit" onClick={() => toggleIsEditing()}>
               <EditIcon />
             </IconButton>
-            <IconButton aria-label="delete" onClick={() => deleteWish(id)}>
+            <IconButton aria-label="delete" onClick={() => deleteWish(content)}>
               <DeleteIcon />
             </IconButton>
           </ListItemSecondaryAction>
