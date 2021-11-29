@@ -88,6 +88,7 @@ module.exports = {
 
       res.json({ username: user.username, email: user.email });
     } catch (e) {
+      console.log(e)
       res.status(500).json({ message: e.message });
     }
   },

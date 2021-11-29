@@ -15,6 +15,7 @@ app.use(express.json());
 
 app.use(cors());
 
+console.log(process.env.MONGO_URL);
 const store = new MongoDbStore({
   uri: process.env.MONGO_URL,
   collection: "mySessions",
@@ -43,6 +44,8 @@ app.get("*", (req, res) => {
 });
 
 app.use(routes);
+
+console.log(process.env.MONGO_URL);
 
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
