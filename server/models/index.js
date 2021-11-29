@@ -1,2 +1,5 @@
 const User = require('./User');
-module.exports = { User };
+
+const Bio = require('./Bio')
+
+module.exports = { User, Bio };
