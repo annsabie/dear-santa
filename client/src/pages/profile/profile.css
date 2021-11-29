@@ -1,0 +1,16 @@
+#profilecard {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#cardcontents {
+    padding: 10px
+}
+
+#santa {
+    padding-top: 10px;
+    align-items: center;
+    height: 300px;
+    justify-content: center;
+    
+}

@@ -21,8 +21,8 @@ const Navbar = () => {
             </NavLink>
             <Bars />
             <NavMenu>
-              <NavLink to="/profile">Profile</NavLink>
               <NavLink to="/about">About</NavLink>
+              <NavLink to="/profile">Profile</NavLink>
             </NavMenu>
             {value.loginState.email ? (
               <span>User logged in: {value.loginState.email}</span>
