@@ -2,6 +2,7 @@ import React from "react";
 import useInputState from "../../hooks/useInputState";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
+import  Divider from "@material-ui/core/Divider";
 
 export default function WishForm({ addWish }) {
   const [value, handleChange, reset] = useInputState("");
@@ -21,6 +22,13 @@ export default function WishForm({ addWish }) {
           onChange={handleChange}
           margin="normal"
           label="What do you wish for?"
+          fullWidth
+        />
+         <TextField
+          value={value}
+          onChange={handleChange}
+          margin="normal"
+          label="Add a link"
           fullWidth
         />
       </form>

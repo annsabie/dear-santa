@@ -60,13 +60,12 @@ export default function WishListApp() {
   );
 
   return (
-    <Grid container justifyContent='center' style={{ marginTop: '1rem' }}>
-    <Grid item xs={11} md={9} lg={5}>
+
           <WishesProvider>
             <WishForm addWish={addWish} />
             <WishList wishes={wishes} toggleWish={toggleWish} deleteWish={deleteWish} editWish={editWish} />
           </WishesProvider>
-    </Grid>
-    </Grid>
+
+ 
   );
 }
