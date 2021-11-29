@@ -8,15 +8,15 @@ import { IconButton } from '@material-ui/core';
 import DeleteIcon from "@material-ui/icons/Delete";
 import SaveIcon from "@material-ui/icons/Save";
 import useBioState from "../../hooks/useBioState"
-/* import { getMe } from '../../utils/api'; */
+import { getMe } from '../../utils/api';
 
 
 export default function Bio() {
   const { bio, addBio, deleteBio, editBio } = useBioState();
   return (
           <Card id="cardcontents">
-            {/* <Avatar>{getMe}</Avatar> */}
-            {/* <Typography variant="h4" align="center">{getMe}</Typography> */}
+            <Avatar>{getMe}</Avatar>
+            <Typography variant="h4" align="center">{getMe}</Typography>
             <Divider />
             <Typography variant="h5" align="center">Bio</Typography>
             <TextField

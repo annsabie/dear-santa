@@ -1,5 +1,13 @@
 const baseUrl = "http://localhost:3001";
 
+export const getMe = () => {
+  return fetch(`${baseUrl}/api/users/me`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
+
 export const createUser = (userData) => {
   return fetch(`${baseUrl}/api/signup`, {
     method: "POST",
