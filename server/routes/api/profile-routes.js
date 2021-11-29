@@ -8,9 +8,9 @@ const {
 } = require("../../controllers/profile-controller");
 
 router.route("/:key/share").post(share);
-router.route("/:key").get(readWishes);
-router.route("/:key").post(createWish);
-router.route("/:key").put(updateWish);
-router.route("/:key").delete(deleteWish);
+router.route("/").get(readWishes);
+router.route("/").post(createWish);
+router.route("/").put(updateWish);
+router.route("/").delete(deleteWish);
 
 module.exports = router;

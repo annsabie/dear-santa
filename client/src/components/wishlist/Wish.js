@@ -16,7 +16,6 @@ import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 export default function Wish({
   content,
   done,
-  id,
   toggleWish,
   deleteWish,
   editWish
@@ -29,7 +28,6 @@ export default function Wish({
         <EditWishForm
           content={content}
           editWish={editWish}
-          id={id}
           toggleIsEditing={toggleIsEditing}
         />
       ) : (

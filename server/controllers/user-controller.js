@@ -5,36 +5,6 @@ const { User } = require("../models");
 // const { signToken } = require("../utils/auth");
 
 module.exports = {
-  /* Returns a single user by either their id or their username.
-  Notice the $or statement below. This is how you can do a Mongoose 
-  query with an "or" instead of "and" clause. The query below will attempt
-  first to match by _id if a value is passed through; otherwise it will try
-  to match on username. */
-
-/*   async getSingleUser({ user = null, params }, res) {
-    const foundUser = await User.findOne({
-      $or: [
-        { _id: user ? user._id : params.id },
-        { username: params.username },
-      ],
-    });
-
-    if (!foundUser) {
-      return res
-        .status(400)
-        .json({ message: "Cannot find a user with this id!" });
-    }
-
-    res.json(foundUser);
-  },
- */
- /*  async getUsers(req, res) {
-    console.log("finding users");
-    const foundUsers = await User.find({});
-    console.log(foundUsers);
-    res.json(foundUsers);
-  }, */
-
   /* Here we are creating a new user. When doing so, we also created a signed token to be 
   "attached" to that user. The result is sent back to (in this case) client/src/components/SignUpForm.js */
 
@@ -88,8 +58,9 @@ module.exports = {
 
 function saveUserLoginSession(session, user) {
   return session.save(() => {
-    session.email = user.email;
+    session.key = user.key;
     session.username = user.username;
+    session.email = user.email;
     session.logged_in = true;
   });
 }

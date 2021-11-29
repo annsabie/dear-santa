@@ -9,25 +9,26 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { v4 as uuidv4 } from 'uuid';
-import auth from '../../utils/auth.js';
+/* import api from '../../utils/api.js'; */
 
 export default function WishListApp() {
   // GET current userKey
   // Fetch current user wish list
-  console.log("WishListApp:", auth.getProfile());
+  const initialWishes = [];
 
-  const initialWishesArray = [];
+  api.getWishes().then(function(response) {
+    if (!response.ok) { console.error("unable to get wishes:", response.status, response.statusText); return }
+    response.json()
+  }).then(function(wishes){
+    wishes.each(function(wish){
+      initialWishes.push({ 
+        content: wish.description, 
+        done: wish.granted 
+      });
+    });
+  });
 
-  // const wishesLength = JSON.parse(localStorage.getItem('wishes')).length;
-  const wishesLength = 0;
-
-  const initialWishes =
-    wishesLength > 0
-      ? // if there are any wishes, render them
-        JSON.parse(window.localStorage.getItem('wishes'))
-      : // otherwise, in case the user deleted all, reload hardcoded wishes from
-        // initialWishesArray upon refresh so it won't start as empty
-        initialWishesArray;
+  console.log("WishListApp:", initialWishes);
 
   const { wishes, addWish, deleteWish, toggleWish, editWish } = useWishesState(initialWishes);
 
