@@ -28,7 +28,7 @@ export default function WishListApp() {
 
   const { wishes, addWish, deleteWish, toggleWish, editWish } = useWishesState(initialWishes);
 
-  useEffect(() => {
+ /*  useEffect(() => {
     const getWishList = async () => {
       try {
         const res = await getWishes();
@@ -36,13 +36,13 @@ export default function WishListApp() {
           throw new Error('No list of wishes');
         }
         const wishList = await res.json();
-/*         setWishList(wishList); */
+        setWishList(wishList);
       } catch (err) {
         console.error(err);
       }
     };
     getWishList();
-  }, [ wishes ] );
+  }, [ wishes ] ); */
 
   return (
 
