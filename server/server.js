@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const routes = require("./routes");
 const MongoDbStore = require("connect-mongodb-session")(session);
-require("dotenv").config({ path: path.resolve(__dirname, './.env') });
+require("dotenv").config({ path: path.resolve(__dirname, "./.env") });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -13,7 +13,11 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3000",
+  methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
+  credentials: true
+}));
 
 const store = new MongoDbStore({
   uri: process.env.MONGO_URL,
@@ -21,12 +25,12 @@ const store = new MongoDbStore({
 });
 
 const sess = {
-  secret: "Super secret secret",
+  secret: process.env.SESSION_KEY || "Super secret secret",
   cookie: {
-    // maxAge: 900
+    maxAge: 60 * 60 * 1000,
   },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   store,
 };
 
@@ -37,12 +41,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
+app.use(routes);
+
 // Use only if the main html isn't loading in production
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
-
-app.use(routes);
 
 console.log(process.env.MONGO_URL);
 

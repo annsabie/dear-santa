@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Bio } = require("../models");
 
 module.exports = {
   async share(req, res) {
@@ -100,6 +100,42 @@ module.exports = {
       }
 
       res.json({ wishes: user.wishes });
+    } catch (e) {
+      res.status(500).json({ message: e.message });
+    }
+  },
+
+  async saveBio(req, res) {
+    try {
+      const filter = { userKey: req.session.key };
+      const existingBio = await Bio.findOne(filter);
+
+      if (existingBio) {
+        await existingBio.update({ content: req.body.content }).exec();
+      } else {
+        console.log("Creating bio");
+        const newBio = { userKey: req.session.key, content: req.body.content }
+        console.log(newBio);
+        await Bio.create(newBio);
+      }
+
+      res.send();
+    } catch (e) {
+      res.status(500).json({ message: e.message });
+    }
+  },
+
+  async getBio(req, res) {
+    try {
+      const filter = { userKey: req.session.key };
+      const existingBio = await Bio.findOne(filter);
+
+      if (existingBio) {
+        res.send(existingBio);
+      } else {
+        res.send({ content: "" });
+      }
+
     } catch (e) {
       res.status(500).json({ message: e.message });
     }
