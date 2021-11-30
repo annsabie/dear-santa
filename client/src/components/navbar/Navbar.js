@@ -10,6 +10,8 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 
+import * as API from "../../utils/api"
+
 const Navbar = () => {
   const navigate = useNavigate();
   return (
@@ -17,6 +19,7 @@ const Navbar = () => {
       {(value) => {
         function logoutRedirect() {
           value.logout();
+          API.logout();
           navigate("/");
         }
         console.log(`render nav bar with context ${JSON.stringify(value)}`);
