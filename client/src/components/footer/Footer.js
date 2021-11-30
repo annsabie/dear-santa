@@ -41,7 +41,7 @@ function Footer() {
                 <FaGithub id="footer-icons" />
               </a>
             </div>
-            <div className="row footer-bottom text-center w-100"><p className="mx-auto">Copyright © 2021, All Rights Reserved</p></div>
+            <div className="row footer-bottom text-center w-100"><p className="mx-auto">Copyright © 2021, All Rights Reserved To Santa's Elves</p></div>
           </footer>
           
         </div>

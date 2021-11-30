@@ -1,29 +1,3 @@
-// // SIGN UP
-// export const createUser = (userData) => {
-//     return fetch('/api/user/', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(userData)
-//     });
-//   };
-
-// // LOGIN
-//   export const userLogin = (userData) => {
-//     return fetch('/api/user/login', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(userData),
-//     });
-//   };
-
-/* When this method is called, notice that the token is also 
-provided, and then attached via headers. Headers are a secure way 
-of passing tokens from client to server. */
-
 const baseUrl = "http://localhost:3001";
 
 export const getMe = () => {
@@ -35,7 +9,7 @@ export const getMe = () => {
 };
 
 export const createUser = (userData) => {
-  return fetch(`${baseUrl}/api/users`, {
+  return fetch(`${baseUrl}/api/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -45,11 +19,42 @@ export const createUser = (userData) => {
 };
 
 export const loginUser = (userData) => {
-  return fetch(`${baseUrl}/api/users/login`, {
+  return fetch(`${baseUrl}/api/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(userData),
   });
+};
+
+export const getWishes = () => {
+  return fetch(`${baseUrl}/api/profile`,{
+    method: "GET",
+    headers: {"Content-Type": "application/json"},
+  })
+};
+
+export const createWish = (wish) => {
+  return fetch(`${baseUrl}/api/profile`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(wish)
+  })
+};
+
+export const updateWish = (wish) => {
+  return fetch(`${baseUrl}/api/profile`, {
+    method: "PUT",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(wish)
+  })
+};
+
+export const deleteWish = (wish) => {
+  return fetch(`${baseUrl}/api/profile`, {
+    method: "DELETE",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(wish)
+  })
 };
