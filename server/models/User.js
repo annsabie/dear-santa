@@ -34,8 +34,8 @@ const userSchema = new Schema({
     required: false,
   },
   wishes: [{
-    description: String,
-    granted: Boolean,
+    content: String,
+    done: Boolean,
   }],
   shares: {
     type: [String],
