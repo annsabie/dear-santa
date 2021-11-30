@@ -13,7 +13,11 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({
+  origin: "http://localhost:3000",
+  methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
+  credentials: true
+}));
 
 const store = new MongoDbStore({
   uri: process.env.MONGO_URL,
@@ -21,12 +25,12 @@ const store = new MongoDbStore({
 });
 
 const sess = {
-  secret: "Super secret secret",
+  secret: process.env.SESSION_KEY || "Super secret secret",
   cookie: {
     maxAge: 60 * 60 * 1000,
   },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   store,
 };
 

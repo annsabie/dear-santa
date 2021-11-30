@@ -54,6 +54,13 @@ module.exports = {
       message: "You are now logged in!",
     });
   },
+
+  async logout(req, res) {
+    req.session.destroy();
+    res.clearCookie('connect.sid');
+
+    res.send();
+  }
 };
 
 function saveUserLoginSession(session, user) {
@@ -61,6 +68,4 @@ function saveUserLoginSession(session, user) {
   session.username = user.username;
   session.email = user.email;
   session.logged_in = true;
-
-  return session.save();
 }
