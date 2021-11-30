@@ -1,15 +1,16 @@
 #card {
     padding: 10px;
-    background-image: url("../../images/bio.jpeg");
     background-repeat: no-repeat !important;
     background-size: cover;
-    
-}
-
-#biotext {
-    color: white;
+  }
+  #biotext {
+    color: rgb(88, 85, 85);
     font-size: 20px;
-    text-shadow: 2px 2px gray;
-}
-
-
+    text-shadow: 1px 1px gray;
+  }
+  .profilegrid {
+    background-image: url("../../images/frenchChristmas.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover;
+    width: auto;
+  }
