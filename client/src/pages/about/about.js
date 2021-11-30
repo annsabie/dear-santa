@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Santa from '../../images/santa.jpg'
-import Winter from '../../images/winter.jpg'
+import './about.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,22 +21,25 @@ export default function FullWidthGrid() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Grid container justifyContent="center" spacing={3} style={{ margin: "0px 0px 0px 0px"}}>
+    <div className={classes.root} className="about">
+      <Grid container justifyContent="center" spacing={10} style={{ margin: "0px 0px 0px 0px"}}>
         <Grid item xs={12} sm={5}>
        
-          <Paper className={classes.paper}>Dear Santa! Our Story</Paper>
+          <Paper className={classes.paper}>
+            <h1>Dear Santa!</h1> <p><h3>Our Story</h3></p>
+            </Paper>
         </Grid></Grid>
 
-        <Grid container justifyContent="center" spacing={3} style={{ margin: "0px 0px 300px 0px"}}>
+        <Grid container justifyContent="center" spacing={10} style={{ margin: "0px 0px 300px 0px"}}>
         <Grid item justifyContent="center" xs={12} sm={5}>
 
        
           <Paper className={classes.paper}>
             
                     
-                  <img src={Santa} style={{
-                    width: "80%"
+                  <img src={Santa} alt="picture of santa" style={{
+                    width: "80%",
+                    margin: "40px"
                   }}></img>
                     
                     <p>We can agree there is so much time and money spent during
