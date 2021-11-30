@@ -1,0 +1,19 @@
+.ui.masthead2.segment {
+  padding: 10%;
+  background-image: url("../../images/loginBackground.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover;
+  width: 100vw !important;
+  color: white;
+  text-shadow: 2px 2px gray;
+  padding-bottom: 40vh;
+}
+
+@media screen and ( max-width: 350px) {
+    .ui.masthead2.segment {
+        width: auto;
+        padding-bottom: 30vh;
+    }
+
+};
+    

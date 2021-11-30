@@ -1,31 +1,17 @@
-import React from 'react';
-import './home.css';
-import Paper from "@material-ui/core/Paper";
+import React from "react";
+import Hero from "./Hero.js";
+import Why from "./Why";
+import WishSection from "./WishSection.js";
 
 // This is the home page updated
-const Home = () => {
+function Home() {
   return (
-        <Paper
-      style={{
-        height: '100vh',
-        backgroundImage: 'linear-gradient(to right top, #d1bebc, #d2c0c1, #c5b0ba, #b2a3b6, #9798b2, #768faa)',
-        padding: 0,
-        margin: 0
-      }}
-     elevation={0}
-   >
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '90vh'
-      }}
-    >
-      <h1>Home</h1>
+    <div>
+      <Hero />
+      <Why />
+      <WishSection />
     </div>
-    </Paper>
   );
-};
+}
 
 export default Home;
