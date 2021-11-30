@@ -58,10 +58,10 @@ module.exports = {
 };
 
 function saveUserLoginSession(session, user) {
-  return session.save(() => {
-    session.key = user.key;
-    session.username = user.username;
-    session.email = user.email;
-    session.logged_in = true;
-  });
+  session.key = user.key;
+  session.username = user.username;
+  session.email = user.email;
+  session.logged_in = true;
+
+  return session.save();
 }

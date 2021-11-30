@@ -38,12 +38,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
+app.use(routes);
+
 // Use only if the main html isn't loading in production
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
-
-app.use(routes);
 
 console.log(process.env.MONGO_URL);
 
