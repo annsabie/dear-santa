@@ -5,6 +5,16 @@
   background-size: cover;
   width: 100vw !important;
   color: white;
+
   
   padding-bottom: 60vh;
 }
+
+@media screen and ( min-width: 350px) {
+    .about {
+        width: auto;
+        padding-bottom: 10vh;
+        background-position: 0px -100px !important;
+    }
+
+};
