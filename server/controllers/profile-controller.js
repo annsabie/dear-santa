@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Bio } = require("../models");
 
 module.exports = {
   async share(req, res) {
@@ -111,9 +111,12 @@ module.exports = {
       const existingBio = await Bio.findOne(filter);
 
       if (existingBio) {
-        await existingBio.update({ content: req.body }).exec();
+        await existingBio.update({ content: req.body.content }).exec();
       } else {
-        Bio.create({ userKey: req.session.key, content: req.body });
+        console.log("Creating bio");
+        const newBio = { userKey: req.session.key, content: req.body.content }
+        console.log(newBio);
+        await Bio.create(newBio);
       }
 
       res.send();
@@ -128,9 +131,9 @@ module.exports = {
       const existingBio = await Bio.findOne(filter);
 
       if (existingBio) {
-        res.send(existingBio.content);
+        res.send(existingBio);
       } else {
-        res.send("");
+        res.send({ content: "" });
       }
 
     } catch (e) {
