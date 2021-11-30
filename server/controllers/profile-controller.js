@@ -104,4 +104,37 @@ module.exports = {
       res.status(500).json({ message: e.message });
     }
   },
+
+  async saveBio(req, res) {
+    try {
+      const filter = { userKey: req.session.key };
+      const existingBio = await Bio.findOne(filter);
+
+      if (existingBio) {
+        await existingBio.update({ content: req.body }).exec();
+      } else {
+        Bio.create({ userKey: req.session.key, content: req.body });
+      }
+
+      res.send();
+    } catch (e) {
+      res.status(500).json({ message: e.message });
+    }
+  },
+
+  async getBio(req, res) {
+    try {
+      const filter = { userKey: req.session.key };
+      const existingBio = await Bio.findOne(filter);
+
+      if (existingBio) {
+        res.send(existingBio.content);
+      } else {
+        res.send("");
+      }
+
+    } catch (e) {
+      res.status(500).json({ message: e.message });
+    }
+  },
 };
