@@ -1,5 +1,6 @@
 // import fontaswesome icons
-import { FaGithub, FaInfo } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { SiHeroku } from "react-icons/si";
 import './footer.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -24,11 +25,11 @@ function Footer() {
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                href= "/about"
+                href= "#"
                 target="_blank"
                 rel="noreferrer"
               >
-                <FaInfo id="footer-icons" />
+                <SiHeroku id="footer-icons" />
               </a>
               {/* a link GitHub*/}
               <a

@@ -42,7 +42,7 @@ class Why extends Component {
           <h2 justifyContent="center">Why choose us?</h2>
         </Box>
 
-        <div style={{ width: "100%" }}>
+        <div style={{ width: "auto" }}>
           <Box
             sx={{
               display: "flex",

@@ -13,7 +13,7 @@ class WishSection extends Component {
         <img
           src={Wish}
           style={{
-            width: "65%",
+            width: "75%",
           }}
         ></img>
       </div>
