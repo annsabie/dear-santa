@@ -49,9 +49,6 @@ export default function Bio() {
       <Typography variant="h3" align="center"><span>{value.loginState.username}</span>
       </Typography>
       <Divider />
-      <Typography variant="h4" align="center">
-        Bio
-      </Typography>
       <TextField
         id="biotext"
         value={bio}

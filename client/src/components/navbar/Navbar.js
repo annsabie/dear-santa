@@ -10,6 +10,7 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 
+import "./navbar.css"
 import * as API from "../../utils/api"
 
 const Navbar = () => {
@@ -31,13 +32,13 @@ const Navbar = () => {
             <Bars />
             <NavMenu>
               <NavLink to="/about">About</NavLink>
-              <NavLink to="/profile">Profile</NavLink>
             </NavMenu>
             {value.loginState.email ? (
               <>
+                <NavLink to="/profile">Profile</NavLink>
                 <span>User logged in: {value.loginState.email}</span>
                 <NavBtn>
-                  <a onClick={logoutRedirect}>🏃 Logout</a>
+                  <a class="logout" onClick={logoutRedirect}>🏃 Logout</a>
                 </NavBtn>
               </>
             ) : (
