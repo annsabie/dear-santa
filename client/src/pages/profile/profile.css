@@ -1,16 +1,13 @@
-#profilecard {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-#cardcontents {
-    padding: 10px
-}
-
-#santa {
-    padding-top: 10px;
-    align-items: center;
-    height: 300px;
-    justify-content: center;
+#card {
+    padding: 10px;
+    background-image: url("../../images/bio.jpeg");
+    background-repeat: no-repeat !important;
+    background-size: cover;
     
 }
+
+#biotext {
+    color: white;
+    font-size: 20px;
+}
+

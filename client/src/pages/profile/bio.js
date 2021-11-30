@@ -7,8 +7,10 @@ import { Divider, Typography } from "@material-ui/core";
 import { IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SaveIcon from "@material-ui/icons/Save";
-
+import { LoginContext } from "../../context/login.context";
+import * as API from "../../utils/api"
 import { getBio, getMe, setBio } from "../../utils/api";
+import { useNavigate } from "react-router-dom";
 
 export default function Bio() {
   const [bio, setBioState] = useState("");
@@ -33,17 +35,25 @@ export default function Bio() {
       throw new Error("you broke it");
     }
   }
+  const navigate = useNavigate();
   return (
-    <Card id="cardcontents">
-      <Avatar>{getMe}</Avatar>
-      <Typography variant="h4" align="center">
-        {getMe}
+    <LoginContext.Consumer>
+      {(value) => {
+        function logoutRedirect() {
+          value.logout();
+          API.logout();
+          navigate("/");
+        }
+  return (
+    <Card id="card">
+      <Typography variant="h3" align="center"><span>{value.loginState.username}</span>
       </Typography>
       <Divider />
-      <Typography variant="h5" align="center">
+      <Typography variant="h4" align="center">
         Bio
       </Typography>
       <TextField
+        id="biotext"
         value={bio}
         onChange={(event) => setBioState(event.target.value)}
         label=""
@@ -58,5 +68,9 @@ export default function Bio() {
         <SaveIcon />
       </IconButton>
     </Card>
+  )
+      }}
+  </LoginContext.Consumer>
+
   );
 }
