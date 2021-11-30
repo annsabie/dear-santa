@@ -1,5 +1,14 @@
 const baseUrl = "http://localhost:3001";
 
+export const getMe = () => {
+  return fetch(`${baseUrl}/api/users/me`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
+};
+
 export const createUser = (userData) => {
   return fetch(`${baseUrl}/api/signup`, {
     method: "POST",
@@ -29,12 +38,17 @@ export const logout = () => {
   });
 }
 
-export const getWishes = () => {
-  return fetch(`${baseUrl}/api/profile/wishes`,{
+export const getWishes = async () => {
+  console.log("getWishes");
+  const response = await fetch(`${baseUrl}/api/profile/wishes`,{
     method: "GET",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
   });
+  const data = await response.json();
+  console.log(data);
+  return data;
+
 };
 
 export const createWish = (wish) => {

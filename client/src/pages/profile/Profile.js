@@ -6,6 +6,44 @@ import WishList from '../../components/wishlist/WishListApp';
 import Bio from "./bio"
 
 const Profile = () => {
+
+  const [wishes, setWishes] = useState([]);
+
+  useEffect(() => {
+    console.log("useEffect");
+    getWishes()
+    .then(wishes => {
+      console.log(wishes);
+      setWishes(wishes);
+
+    })
+  },
+
+  async function addWish(wishList) {
+    const response = await createWish(wishList);
+    if (!response.ok) {
+      throw new Error("WishListApp: wishes: Error");
+    }
+  },
+  async function toggleWish(wishList) {
+    const response = await updateWish(wishList);
+    if (!response.ok) {
+      throw new Error("WishListApp: wishes: Error");
+    }
+  },
+  async function editWish(wishList) {
+    const response = await updateWish(wishList);
+    if (!response.ok) {
+      throw new Error("WishListApp: wishes: Error");
+    }
+  },
+  async function deleteWish(wishList) {
+    const response = await deleteWish(wishList);
+    if (!response.ok) {
+      throw new Error("WishListApp: wishes: Error");
+    }
+  },
+
   return (
     <Paper
       style={{
