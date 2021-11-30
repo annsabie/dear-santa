@@ -8,3 +8,12 @@
   text-shadow: 2px 2px gray;
   padding-bottom: 40vh;
 }
+
+@media screen and ( max-width: 350px) {
+    .ui.masthead2.segment {
+        width: auto;
+        padding-bottom: 30vh;
+    }
+
+};
+    
