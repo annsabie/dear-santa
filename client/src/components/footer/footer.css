@@ -9,6 +9,10 @@
     color: white;
   }
 
+  a:hover {
+    color: #9d0208 !important;
+  }
+
 /* FontAwesome #footer-icon */
 #footer-icons {
     text-align: center !important;

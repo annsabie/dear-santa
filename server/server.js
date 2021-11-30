@@ -19,6 +19,7 @@ app.use(cors({
   credentials: true
 }));
 
+console.log(process.env.MONGO_URL);
 const store = new MongoDbStore({
   uri: process.env.MONGO_URL,
   collection: "mySessions",
