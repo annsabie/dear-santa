@@ -22,7 +22,7 @@ export default function FullWidthGrid() {
 
   return (
     <div className={classes.root} className="about">
-      <Grid container justifyContent="center" spacing={10} style={{ margin: "0px 0px 0px 0px"}}>
+      <Grid container justifyContent="center" spacing={4} style={{ margin: "0px 0px 0px 0px"}}>
         <Grid item xs={12} sm={5}>
        
           <Paper className={classes.paper}>
@@ -30,7 +30,7 @@ export default function FullWidthGrid() {
             </Paper>
         </Grid></Grid>
 
-        <Grid container justifyContent="center" spacing={10} style={{ margin: "0px 0px 300px 0px"}}>
+        <Grid container justifyContent="center" spacing={4} style={{ margin: "0px 0px 300px 0px"}}>
         <Grid item justifyContent="center" xs={12} sm={5}>
 
        
