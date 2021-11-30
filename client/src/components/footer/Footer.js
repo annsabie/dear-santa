@@ -1,7 +1,8 @@
 // import fontaswesome icons
-import { FaGithub, FaInfo } from "react-icons/fa";
-import './footer.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import { FaGithub } from "react-icons/fa";
+import { SiHeroku } from "react-icons/si";
+import "./footer.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // footer function
 function Footer() {
@@ -24,11 +25,11 @@ function Footer() {
               <a
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                href= "/about"
+                href="#"
                 target="_blank"
                 rel="noreferrer"
               >
-                <FaInfo id="footer-icons" />
+                <SiHeroku id="footer-icons" />
               </a>
               {/* a link GitHub*/}
               <a
@@ -41,9 +42,10 @@ function Footer() {
                 <FaGithub id="footer-icons" />
               </a>
             </div>
-            <div className="row footer-bottom text-center w-100"><p className="mx-auto">Copyright © 2021, All Rights Reserved</p></div>
+            <div className="row footer-bottom text-center w-100">
+              <p className="mx-auto">Copyright © 2021, All Rights Reserved</p>
+            </div>
           </footer>
-          
         </div>
       </div>
     </div>

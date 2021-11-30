@@ -1,0 +1,18 @@
+.ui.masthead.segment {
+  padding: 10%;
+  background-image: url("../../images/badassSanta.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover;
+  width: 100vw !important;
+  color: white;
+  text-shadow: 2px 2px gray;
+  padding-bottom: 65vh;
+}
+
+@media screen and ( max-width: 350px) {
+    .ui.masthead.segment {
+        width: auto;
+        padding-bottom: 10vh;
+    }
+
+};
