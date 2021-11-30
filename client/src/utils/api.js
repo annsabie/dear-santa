@@ -38,16 +38,21 @@ export const logout = () => {
   });
 }
 
-export const getWishes = () => {
-  return fetch(`${baseUrl}/api/profile`, {
+export const getWishes = async () => {
+  console.log("getWishes");
+  const response = await fetch(`${baseUrl}/api/profile/wishes`,{
     method: "GET",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
   });
+  const data = await response.json();
+  console.log(data);
+  return data;
+
 };
 
 export const createWish = (wish) => {
-  return fetch(`${baseUrl}/api/profile`, {
+  return fetch(`${baseUrl}/api/profile/wishes`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -56,7 +61,7 @@ export const createWish = (wish) => {
 };
 
 export const updateWish = (wish) => {
-  return fetch(`${baseUrl}/api/profile`, {
+  return fetch(`${baseUrl}/api/profile/wishes`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -65,7 +70,7 @@ export const updateWish = (wish) => {
 };
 
 export const deleteWish = (wish) => {
-  return fetch(`${baseUrl}/api/profile`, {
+  return fetch(`${baseUrl}/api/profile/wishes`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     credentials: "include",

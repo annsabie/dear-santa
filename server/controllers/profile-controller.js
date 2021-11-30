@@ -20,15 +20,17 @@ module.exports = {
   },
 
   async readWishes(req, res) {
+    console.log("readWishes");
     // pull from model, get current list of all wishes for logged in user
     try {
       const filter = { key: req.session.key };
       const user = await User.findOne(filter);
 
       if (!user) {
+        console.log("!user");
         return res.status(400).json({ message: "No wishes found" });
       }
-
+      console.log(user.wishes);
       res.json(user.wishes);
     } catch (e) {
       res.status(500).json({ message: e.message });

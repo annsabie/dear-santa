@@ -16,6 +16,7 @@ import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 export default function Wish({
   content,
   done,
+  id,
   toggleWish,
   deleteWish,
   editWish
@@ -28,6 +29,7 @@ export default function Wish({
         <EditWishForm
           content={content}
           editWish={editWish}
+          id={id}
           toggleIsEditing={toggleIsEditing}
         />
       ) : (
@@ -39,7 +41,7 @@ export default function Wish({
                   icon={<FavoriteBorder />}
                   checkedIcon={<Favorite />}
                   checked={done}
-                  onClick={() => toggleWish(content)}
+                  onClick={() => toggleWish(id)}
                 />
               }
             />
@@ -51,7 +53,7 @@ export default function Wish({
             <IconButton aria-label="edit" onClick={() => toggleIsEditing()}>
               <EditIcon />
             </IconButton>
-            <IconButton aria-label="delete" onClick={() => deleteWish(content)}>
+            <IconButton aria-label="delete" onClick={() => deleteWish(id)}>
               <DeleteIcon />
             </IconButton>
           </ListItemSecondaryAction>

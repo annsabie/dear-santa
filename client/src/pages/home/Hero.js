@@ -6,7 +6,7 @@ class Hero extends Component {
     return (
       <div class="ui inverted vertical masthead center aligned segment">
         <div class="ui text container">
-          <h1 class="ui inverted header">Do You have a wishlist for Santa?</h1>
+          <h1 class="ui inverted header">Do you have a wishlist for Santa?</h1>
         </div>
         <div></div>
       </div>
