@@ -36,10 +36,10 @@ const Navbar = () => {
             {value.loginState.email ? (
               <>
                 <NavLink to="/profile">Profile</NavLink>
-                <span>User logged in: {value.loginState.email}</span>
                 <NavBtn>
                   <a class="logout" onClick={logoutRedirect}>🏃 Logout</a>
                 </NavBtn>
+                <span>User logged in: {value.loginState.email}</span>
               </>
             ) : (
               <>

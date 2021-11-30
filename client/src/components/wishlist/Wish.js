@@ -12,17 +12,15 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import Favorite from "@material-ui/icons/Favorite";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
-
 export default function Wish({
   content,
   done,
   id,
   toggleWish,
   deleteWish,
-  editWish
+  editWish,
 }) {
   const [isEditing, toggleIsEditing] = useToggleState(false);
-
   return (
     <ListItem style={{ height: "64px" }}>
       {isEditing ? (
@@ -46,17 +44,23 @@ export default function Wish({
               }
             />
           </FormGroup>
-          <ListItemText style={{ textDecoration: done && "line-through" }}>
+          <ListItemText
+            style={{
+              textDecoration: done && "line-through",
+              whiteSpace: "normal",
+              wordWrap: "break-word",
+            }}
+          >
             {content}
+            <ListItemSecondaryAction>
+              <IconButton aria-label="edit" onClick={() => toggleIsEditing()}>
+                <EditIcon />
+              </IconButton>
+              <IconButton aria-label="delete" onClick={() => deleteWish(id)}>
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
           </ListItemText>
-          <ListItemSecondaryAction>
-            <IconButton aria-label="edit" onClick={() => toggleIsEditing()}>
-              <EditIcon />
-            </IconButton>
-            <IconButton aria-label="delete" onClick={() => deleteWish(id)}>
-              <DeleteIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
         </>
       )}
     </ListItem>
