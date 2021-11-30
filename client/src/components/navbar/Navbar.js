@@ -1,5 +1,6 @@
 import React from "react";
 import { LoginContext } from "../../context/login.context";
+import { useNavigate } from "react-router-dom";
 import {
   Nav,
   NavLink,
@@ -9,10 +10,18 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 
+import * as API from "../../utils/api"
+
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <LoginContext.Consumer>
       {(value) => {
+        function logoutRedirect() {
+          value.logout();
+          API.logout();
+          navigate("/");
+        }
         console.log(`render nav bar with context ${JSON.stringify(value)}`);
         return (
           <Nav>
@@ -25,7 +34,12 @@ const Navbar = () => {
               <NavLink to="/profile">Profile</NavLink>
             </NavMenu>
             {value.loginState.email ? (
-              <span>User logged in: {value.loginState.email}</span>
+              <>
+                <span>User logged in: {value.loginState.email}</span>
+                <NavBtn>
+                  <a onClick={logoutRedirect}>🏃 Logout</a>
+                </NavBtn>
+              </>
             ) : (
               <>
                 <NavBtn>
@@ -36,9 +50,6 @@ const Navbar = () => {
                 </NavBtn>
               </>
             )}
-            {/* <NavBtn>
-        <NavBtnLink to="/about">🏃 Logout</NavBtnLink>
-        </NavBtn> */}
           </Nav>
         );
       }}
