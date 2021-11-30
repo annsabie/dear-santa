@@ -24,13 +24,6 @@ export default function WishForm({ addWish }) {
           label="What do you wish for?"
           fullWidth
         />
-         <TextField
-          value={value}
-          onChange={handleChange}
-          margin="normal"
-          label="Add a link"
-          fullWidth
-        />
       </form>
     </Paper>
   );
