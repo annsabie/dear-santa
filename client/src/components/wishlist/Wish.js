@@ -49,6 +49,9 @@ export default function Wish({
               textDecoration: done && "line-through",
               whiteSpace: "normal",
               wordWrap: "break-word",
+              paddingRight: "125px",
+              overflow: "hidden",
+              // textOverflow: "ellipsis",
             }}
           >
             {content}
