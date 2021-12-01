@@ -1,16 +1,15 @@
-const baseUrl = "http://localhost:3001";
+// const baseUrl = "http://localhost:3001";
 
 export const getMe = () => {
-  return fetch(`${baseUrl}/api/users/me`, {
-    headers: {
-      "Content-Type": "application/json",
+  return fetch(`/api/users/me`, {
+    headers: {      "Content-Type": "application/json",
     },
     credentials: "include",
   });
 };
 
 export const createUser = (userData) => {
-  return fetch(`${baseUrl}/api/signup`, {
+  return fetch(`/api/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +20,7 @@ export const createUser = (userData) => {
 };
 
 export const loginUser = (userData) => {
-  return fetch(`${baseUrl}/api/login`, {
+  return fetch(`/api/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,7 +31,7 @@ export const loginUser = (userData) => {
 };
 
 export const logout = () => {
-  return fetch(`${baseUrl}/api/logout`, {
+  return fetch(`/api/logout`, {
     method: "POST",
     credentials: "include",
   });
@@ -40,7 +39,7 @@ export const logout = () => {
 
 export const getWishes = async () => {
   console.log("getWishes");
-  const response = await fetch(`${baseUrl}/api/profile/wishes`,{
+  const response = await fetch(`/api/profile/wishes`,{
     method: "GET",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -52,7 +51,7 @@ export const getWishes = async () => {
 };
 
 export const createWish = (wish) => {
-  return fetch(`${baseUrl}/api/profile/wishes`, {
+  return fetch(`/api/profile/wishes`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -61,7 +60,7 @@ export const createWish = (wish) => {
 };
 
 export const updateWish = (wish) => {
-  return fetch(`${baseUrl}/api/profile/wishes`, {
+  return fetch(`/api/profile/wishes`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -70,7 +69,7 @@ export const updateWish = (wish) => {
 };
 
 export const deleteWish = (wish) => {
-  return fetch(`${baseUrl}/api/profile/wishes`, {
+  return fetch(`/api/profile/wishes`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -79,13 +78,13 @@ export const deleteWish = (wish) => {
 };
 
 export const getBio = () => {
-  return fetch(`${baseUrl}/api/profile/bio`, { 
+  return fetch(`/api/profile/bio`, { 
     credentials: "include",
   });
 };
 
 export const setBio = (content) => {
-  return fetch(`${baseUrl}/api/profile/bio`, {
+  return fetch(`/api/profile/bio`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include",

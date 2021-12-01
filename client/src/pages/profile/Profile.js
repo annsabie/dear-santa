@@ -22,7 +22,10 @@ const Profile = () => {
         container
         justifyContent="center"
         spacing={3}
-        style={{ margin: "0px 0px 100px 0px" }}
+        style={{ 
+          margin: "0px 0px 100px 0px", 
+        }}
+        
       >
         <Grid item justifyContent="center" xs={12} sm={5}>
           <Bio />
