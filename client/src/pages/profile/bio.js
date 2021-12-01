@@ -54,7 +54,8 @@ export default function Bio() {
         label=""
         multiline
         rows={8}
-        defaultValue="Enter your bio here!"
+        // defaultValue="Enter your bio here!"
+        placeholder="Enter your bio here! (ex. Interests, Hobbies, Clothing Size)"
         fullWidth
       />
       <Divider />

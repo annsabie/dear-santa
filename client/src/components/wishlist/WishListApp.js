@@ -8,15 +8,11 @@ import Grid from "@material-ui/core/Grid";
 
 export default function WishListApp() {
   const { wishes, setWishes, addWish, deleteWish, toggleWish, editWish } =
-    // Start out with wishes == null
     useWishesState(null);
   useEffect(() => {
     if (wishes == null) {
-
-      // get wishes from the API instead of local storage
       setWishes(JSON.parse(window.localStorage.getItem("wishes")) || []);
     } else {
-      // save wishes via the API instead of local storage
       window.localStorage.setItem("wishes", JSON.stringify(wishes));
     }
   }, [wishes, setWishes]);
@@ -26,7 +22,6 @@ export default function WishListApp() {
         <WishesProvider>
           <WishForm addWish={addWish} />
           { wishes &&
-            /* Only render the wishes after initialization from the API or localStorage */
             <WishList
               wishes={wishes}
               toggleWish={toggleWish}

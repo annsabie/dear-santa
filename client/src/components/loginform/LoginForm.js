@@ -7,7 +7,6 @@ import TextField from "@material-ui/core/TextField";
 
 import Grid from "@material-ui/core/Grid";
 import { loginUser } from "../../utils/api";
-/* import Auth from "../../utils/auth"; */
 import { LoginContext } from "../../context/login.context";
 
 const emailRegex = /^([a-z0-9_.-]+)@([\da-z.-]+)\.([a-z.]{2,6})$/;
@@ -38,9 +37,6 @@ const LoginForm = () => {
       event.preventDefault();
       console.log(userFormData);
 
-      /* Here we call the loginUser method, passing in the form data. If 
-      the login is successful, we'll receive back a token as well as the 
-      user data. The Auth.login() method will add the token to localStorage. */
       try {
         const response = await loginUser(userFormData);
 
@@ -70,7 +66,6 @@ const LoginForm = () => {
           direction="row"
         >
           <Grid item className="loginForm">
-            {/* TODO: Validation functionality in Material UI format */}
             <Grid
               container
               direction="column"
@@ -80,11 +75,6 @@ const LoginForm = () => {
               validated={validated}
               onSubmit={handleFormSubmit(context)}
             >
-              {/* <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-    TODO: Alert feedback in Material UI format
-      <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-        Something went wrong with your login credentials!
-      </Alert> */}
 
               <h1>Login:</h1>
               <br />
@@ -101,8 +91,6 @@ const LoginForm = () => {
                   required
                 />
                 <br />
-                {/* TODO: Alert feedback in Material UI format */}
-                {/* <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback> */}
                 <TextField
                   label="Password"
                   type="password"
@@ -113,8 +101,6 @@ const LoginForm = () => {
                   required
                 />
 
-                {/* TODO: Alert feedback in Material UI format */}
-                {/* <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback> */}
                 <br />
                 <Button
                   disabled={
