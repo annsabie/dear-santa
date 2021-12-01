@@ -1,13 +1,7 @@
 // import user model
 const { User } = require("../models");
 
-// import sign token function from auth
-// const { signToken } = require("../utils/auth");
-
 module.exports = {
-  /* Here we are creating a new user. When doing so, we also created a signed token to be 
-  "attached" to that user. The result is sent back to (in this case) client/src/components/SignUpForm.js */
-
   async signup(req, res) {
     try {
       const user = await User.create(req.body);
@@ -24,10 +18,6 @@ module.exports = {
       res.status(500).json({ message: e.message });
     }
   },
-
-  /* Here we are handling a login attempt. First we validate the _id or username value. 
-  Then we validate the password using a hook built into the User model. If all is valid, 
-  we return a signed token and the user info back to the client. */
 
   async login(req, res) {
     const { body } = req;
@@ -54,6 +44,24 @@ module.exports = {
       user: { key: user.key, email: user.email, username: user.username },
       message: "You are now logged in!",
     });
+  },
+
+  async me(req, res) {
+    try {
+      const filter = { key: req.session.key };
+      const user = await User.findOne(filter);
+
+      if (user) {
+        const { key, username, email } = user;
+        res.json({ key, username, email });
+      } else {
+        return res
+          .status(404)
+          .json({ message: "User not logged in." });
+      }
+    } catch (e) {
+      res.status(500).json({ message: e.message });
+    }
   },
 
   async logout(req, res) {

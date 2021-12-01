@@ -5,7 +5,6 @@ import "./profile.css";
 import Bio from "./bio";
 import React from "react";
 import Wishlist from "../../components/wishlist/WishListApp.js";
-import Navbar from "../../components/navbar/Navbar";
 const Profile = () => {
   return (
     <Paper
