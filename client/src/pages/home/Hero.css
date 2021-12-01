@@ -9,10 +9,59 @@
   padding-bottom: 65vh;
 }
 
+.anything {
+  padding: 10%;
+  background-image: url("../../images/loginBackground.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover;
+  width: 100vw !important;
+  color: white;
+  text-shadow: 2px 2px gray;
+  padding-bottom: 40vh;
+}
+
+.ui.masthead3.segment {
+  padding: 10%;
+  background-image: url("../../images/gangsterGnomes.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover;
+  width: 100vw !important;
+  color: rgb(105, 105, 105);
+  text-shadow: 2px 2px black;
+  padding-bottom: 35vh;
+}
+
+.about{
+  padding-right: 10%;
+  background-image: url("../../images/winter.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover;
+  width: 100vw !important;
+  color: white;  
+  padding-bottom: 60vh;
+}
+
 @media screen and ( max-width: 350px) {
     .ui.masthead.segment {
         width: auto;
         padding-bottom: 10vh;
     }
+
+};
+
+
+@media screen and ( max-width: 350px) {
+  .ui.masthead2.segment {
+      width: auto;
+      padding-bottom: 30vh;
+  }
+};
+
+@media screen and ( min-width: 350px) {
+  .about {
+      width: auto;
+      padding-bottom: 10vh;
+      background-position: 0px -100px !important;
+  }
 
 };

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import "./wish.css";
+
 import Wish from "../../images/wishList.jpg";
 import Box from "@material-ui/core/Box";
+import "./Hero.css";
 
 class WishSection extends Component {
   render() {
@@ -13,7 +14,7 @@ class WishSection extends Component {
         <img
           src={Wish}
           style={{
-            width: "75%",
+            width: "50%",
           }}
         ></img>
       </div>

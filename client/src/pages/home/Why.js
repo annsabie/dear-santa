@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import "./why.css";
+
 import Box from "@material-ui/core/Box";
 import PropTypes from "prop-types";
 import Card1 from "./Card1.js";
 import Card2 from "./Card2.js";
 import Card3 from "./Card3.js";
+import "./Hero.css";
 
 function Item(props) {
   const { sx, ...other } = props;
@@ -37,7 +38,7 @@ Item.propTypes = {
 class Why extends Component {
   render() {
     return (
-      <div className="ui masthead2 segment">
+      <div className="ui masthead2 segment anything">
         <Box justifyContent="center">
           <h2 justifyContent="center">Why choose us?</h2>
         </Box>
