@@ -51,7 +51,6 @@ export default function Wish({
               wordWrap: "break-word",
               paddingRight: "125px",
               overflow: "hidden",
-              // textOverflow: "ellipsis",
             }}
           >
             {content}

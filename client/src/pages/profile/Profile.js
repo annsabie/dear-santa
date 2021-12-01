@@ -12,6 +12,7 @@ const Profile = () => {
       className="profilegrid"
       style={{
         height: "100vh",
+        overflowY:"scroll",
         padding: 0,
         margin: 0,
       }}
@@ -21,7 +22,7 @@ const Profile = () => {
         container
         justifyContent="center"
         spacing={3}
-        style={{ margin: "0px 0px 300px 0px" }}
+        style={{ margin: "0px 0px 100px 0px" }}
       >
         <Grid item justifyContent="center" xs={12} sm={5}>
           <Bio />
