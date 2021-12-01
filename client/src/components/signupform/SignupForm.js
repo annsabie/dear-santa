@@ -1,4 +1,3 @@
-// import { InputLabel } from '@material-ui/core';
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./signup.css";
@@ -63,7 +62,6 @@ const SignupForm = () => {
         direction="row"
       >
         <Grid item className="signupForm">
-          {/* TODO: Validation functionality in Material UI format */}
           <Grid
             container
             direction="column"
