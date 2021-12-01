@@ -14,7 +14,6 @@ module.exports = {
 
       res.json({ key: user.key, username: user.username, email: user.email });
     } catch (e) {
-      console.log(e)
       res.status(500).json({ message: e.message });
     }
   },

@@ -20,17 +20,14 @@ module.exports = {
   },
 
   async readWishes(req, res) {
-    console.log("readWishes");
     // pull from model, get current list of all wishes for logged in user
     try {
       const filter = { key: req.session.key };
       const user = await User.findOne(filter);
 
       if (!user) {
-        console.log("!user");
         return res.status(400).json({ message: "No wishes found" });
       }
-      console.log(user.wishes);
       res.json(user.wishes);
     } catch (e) {
       res.status(500).json({ message: e.message });
@@ -115,9 +112,7 @@ module.exports = {
       if (existingBio) {
         await existingBio.update({ content: req.body.content }).exec();
       } else {
-        console.log("Creating bio");
         const newBio = { userKey: req.session.key, content: req.body.content }
-        console.log(newBio);
         await Bio.create(newBio);
       }
 

@@ -44,10 +44,8 @@ const SignupForm = () => {
       }
 
       const { user } = await response.json();
-      console.log(user);
       navigate("/profile");
     } catch (err) {
-      console.error(err);
       setShowAlert(true);
     }
   };
