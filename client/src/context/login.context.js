@@ -9,7 +9,6 @@ export function LoginProvider(props) {
   const context = {
     loginState,
     login: (user) => {
-      console.log(`set loginState: ${JSON.stringify(user)}`);
       setLoginState(user);
     },
     logout: () => {
@@ -18,13 +17,11 @@ export function LoginProvider(props) {
   };
 
   if (!loginState.key) {
-    console.log('Check if user is logged in...');
 
     getMe().then(async res => {
       if (res.ok) {
         // The user is already logged in
         let user = await res.json();
-        console.log(`User logged in: ${JSON.stringify(user)}`)
         context.login(user);
       }
     });

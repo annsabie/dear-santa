@@ -23,7 +23,6 @@ const Navbar = () => {
           API.logout();
           navigate("/");
         }
-        console.log(`render nav bar with context ${JSON.stringify(value)}`);
         return (
           <Nav>
             <NavLink to="/">

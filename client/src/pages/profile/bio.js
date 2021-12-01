@@ -15,7 +15,6 @@ export default function Bio() {
   useEffect(() => {
     getBio()
       .catch((err) => {
-        console.log(err);
         alert("failed to fetch bio");
       })
       .then(async (response) => {

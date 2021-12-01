@@ -35,7 +35,6 @@ const LoginForm = () => {
   function handleFormSubmit(context) {
     return async (event) => {
       event.preventDefault();
-      console.log(userFormData);
 
       try {
         const response = await loginUser(userFormData);
@@ -46,10 +45,8 @@ const LoginForm = () => {
 
         const { user } = await response.json();
         context.login(user);
-        console.log(user);
         navigate("/profile");
       } catch (err) {
-        console.error(err);
         setShowAlert(true);
       }
     };

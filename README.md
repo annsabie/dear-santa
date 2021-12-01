@@ -30,11 +30,11 @@ npm run start
 
 # Link
 
-[Here is a link to the deployed code.](LINK)
+[Here is a link to the deployed code.](https://dear-santa-project.herokuapp.com/)
 
 # Screenshot
 
-![Screenshot](SCREENSHOT)
+![Screenshot](./client/src/images/dear-santa-app.png)
 
 # Authors 
 

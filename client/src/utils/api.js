@@ -40,14 +40,12 @@ export const logout = () => {
 }
 
 export const getWishes = async () => {
-  console.log("getWishes");
   const response = await fetch(`/api/profile/wishes`,{
     method: "GET",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
   });
   const data = await response.json();
-  console.log(data);
   return data;
 
 };
