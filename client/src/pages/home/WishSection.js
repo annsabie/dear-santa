@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import "./wish.css";
+
 import Wish from "../../images/wishList.jpg";
 import Box from "@material-ui/core/Box";
+import "./Hero.css";
 
 class WishSection extends Component {
   render() {
