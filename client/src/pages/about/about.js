@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Santa from "../../images/santa.jpg";
-import "./about.css";
+import "../home/Hero.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -12,5 +12,7 @@
     background-image: url("../../images/frenchChristmas.jpg") !important;
     background-repeat: no-repeat !important;
     background-size: cover;
+    background-attachment: fixed;
     width: auto;
+    padding-bottom: 65vh
   }

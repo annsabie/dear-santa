@@ -31,10 +31,10 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Any Store
+            COMING SOON!!
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Find your items from any online store and add it to your list!
+           Find your items from any online store and add it to your list!
           </Typography>
         </CardContent>
       </CardActionArea>
