@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { getMe } from "../utils/api";
 
 export const LoginContext = createContext();
 // provider calls our custom hook to set up the initial wishes object
@@ -15,10 +16,23 @@ export function LoginProvider(props) {
       setLoginState({});
     },
   };
+
+  if (!loginState.key) {
+    console.log('Check if user is logged in...');
+
+    getMe().then(async res => {
+      if (res.ok) {
+        // The user is already logged in
+        let user = await res.json();
+        console.log(`User logged in: ${JSON.stringify(user)}`)
+        context.login(user);
+      }
+    });
+  }
+
   return (
-    //   return a provider wrapper
+
     <LoginContext.Provider
-      // pass the wishes object as a value so any children can consume it
       value={context}
     >
       {props.children}

@@ -5,6 +5,7 @@ export default initialWishes => {
   const [wishes, setWishes] = useState(initialWishes);
   return {
     wishes,
+    setWishes,
     addWish: newWishText => {
       setWishes([
         ...wishes,
