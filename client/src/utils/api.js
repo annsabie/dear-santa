@@ -1,7 +1,7 @@
 const baseUrl = "http://localhost:3001";
 
 export const getMe = () => {
-  return fetch(`${baseUrl}/api/users/me`, {
+  return fetch(`${baseUrl}/api/me`, {
     headers: {
       "Content-Type": "application/json",
     },
